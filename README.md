@@ -7,6 +7,11 @@ O **Country Explorer** é uma aplicação web desenvolvida em Next.js que permit
 
 🌐 **Demo Online**: [https://countriexplorer.netlify.app/](https://countriexplorer.netlify.app/)
 
+## Sumário
+
+- [Instalação](#instalação)
+- [Documentação](#documentação)
+
 ## Instalação
 
 ### Docker
