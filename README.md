@@ -1,36 +1,77 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Country Explorer
 
-## Getting Started
+## Instalação
 
-First, run the development server:
+### Docker
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+A aplicação está configurada para rodar no docker.
+
+Para iniciar em ambiente Linux/MacOs, execute o comando:
+
+```
+npm run makefile
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Para iniciar em ambiente Windows, execute o comando:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+npm run makefile-win
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Local
 
-## Learn More
+Para rodar localmente, precisamos primeiro instalar as dependências:
 
-To learn more about Next.js, take a look at the following resources:
+```
+npm install
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Após isso, criar o arquivo `.env` e configurar as variáveis de ambiente:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+NEXT_PUBLIC_API_URL=your-api-url.com.br
+```
 
-## Deploy on Vercel
+### Makefile
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Os arquivos executáveis makefile possuem passos que podem ser comentados para atender cada situação, como parar o container, remover o container, remover a imagem e rebuildar a imagem.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+#### Parar o container
+
+Para parar o container, execute o comando:
+
+```
+docker stop country-explorer-frontend-container
+```
+
+#### Remover o container
+
+Caso queira remover o container, execute o comando:
+
+```
+docker rm -f country-explorer-frontend-container
+```
+
+#### Remover a imagem
+
+Para remover a imagem, execute o comando:
+
+```
+docker rmi country-explorer-frontend
+```
+
+#### Rebuildar a imagem
+
+Para rebuildar a imagem, execute o comando:
+
+```
+docker build -t country-explorer-frontend --no-cache .
+```
+
+#### Iniciar o container
+
+Para iniciar o container, execute o comando:
+
+```
+docker run --name country-explorer-frontend-container -p 3000:3000 country-explorer-frontend
+```

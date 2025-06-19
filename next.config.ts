@@ -2,11 +2,12 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   reactStrictMode: false,
+  output: "standalone",
   async redirects() {
     return [
       {
         source: "/",
-        destination: "/list-countries",
+        destination: "/countries",
         permanent: true,
       },
     ];

@@ -1,5 +1,4 @@
-"use client";
-import React, { ButtonHTMLAttributes } from "react";
+import { ButtonHTMLAttributes } from "react";
 import styles from "./styles.module.scss";
 
 export enum ButtonVariants {

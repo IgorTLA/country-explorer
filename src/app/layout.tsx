@@ -1,4 +1,6 @@
 import { notoSans } from "@/fonts";
+import { CountryListProvider } from "@/hooks/useCountryList";
+import { FavoritesProvider } from "@/hooks/useFavorites";
 import "@/styles/globals.scss";
 
 export default function RootLayout({
@@ -13,7 +15,9 @@ export default function RootLayout({
         <title>Country Explorer</title>
       </head>
       <body suppressHydrationWarning className={notoSans.className}>
-        {children}
+        <CountryListProvider>
+          <FavoritesProvider>{children}</FavoritesProvider>
+        </CountryListProvider>
       </body>
     </html>
   );
