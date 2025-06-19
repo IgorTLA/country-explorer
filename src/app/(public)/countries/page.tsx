@@ -15,17 +15,26 @@ import { FavoriteCountry } from "@/domain/country/types";
 export default function Countries() {
   const router = useRouter();
   const { countryListState, fetchCountries } = useCountryList();
-  const { favorites, addFavorite } = useFavorites();
+  const { favorites, addFavorite, removeFavorite } = useFavorites();
 
   const [search, setSearch] = useState("");
   const debouncedSearch = useDebounce(search, 300);
 
   const handleToggleFavorite = (country: FavoriteCountry) => {
-    addFavorite(country);
+    const isAlreadyFavorite = favorites.find(
+      (item) => item.cca3 === country.cca3
+    );
+
+    if (isAlreadyFavorite) {
+      removeFavorite(country.cca3);
+    } else {
+      addFavorite(country);
+    }
   };
 
   useEffect(() => {
     fetchCountries(debouncedSearch);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [debouncedSearch]);
 
   return (

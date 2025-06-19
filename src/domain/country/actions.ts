@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { api } from "@/services";
 import { ApiResponseType } from "@/types/actions";
 import { AxiosError } from "axios";
@@ -23,24 +24,21 @@ export async function getCountries(name?: string) {
     })
     .catch((error: AxiosError) => {
       if (!error.response) {
-        let newError: ApiResponseType<any> = {
+        return {
           message: "Error connecting to server",
           status: 500,
           data: null,
-        };
-
-        return newError;
+        } as ApiResponseType<any>;
       }
+
       const apiResponse = error.response.data as any;
       const errorData = apiResponse.message as ApiResponseType<any>;
 
-      let newError: ApiResponseType<any> = {
+      return {
         message: errorData.message,
         status: errorData.status,
         data: null,
-      };
-
-      return newError;
+      } as ApiResponseType<any>;
     });
 }
 
@@ -63,23 +61,19 @@ export async function getCountryByCode(
     })
     .catch((error: AxiosError) => {
       if (!error.response) {
-        let newError: ApiResponseType<any> = {
+        return {
           message: "Error connecting to server",
           status: 500,
           data: null,
-        };
-
-        return newError;
+        } as ApiResponseType<any>;
       }
       const apiResponse = error.response.data as any;
       const errorData = apiResponse.message as ApiResponseType<any>;
 
-      let newError: ApiResponseType<any> = {
+      return {
         message: errorData.message,
         status: errorData.status,
         data: null,
-      };
-
-      return newError;
+      } as ApiResponseType<any>;
     });
 }

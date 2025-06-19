@@ -9,6 +9,7 @@ type CountryDetailProps = {
 export function CountryDetail({ country }: CountryDetailProps) {
   return (
     <div className={styles.wrapper}>
+      {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={country.flags.svg}
         alt={`Flag of ${country.name.common}`}

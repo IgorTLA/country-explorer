@@ -23,7 +23,6 @@ COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/package.json ./
 COPY .env.production .env.production
 
-
 EXPOSE 3000
 
 CMD ["npm", "start"]

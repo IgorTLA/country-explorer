@@ -1,6 +1,7 @@
 import { promises as fs } from "fs";
 import path from "path";
 import { NextRequest } from "next/server";
+import { FavoriteCountry } from "@/domain/country/types";
 
 const filePath = path.resolve(process.cwd(), "src/data/favorites.json");
 
@@ -15,7 +16,9 @@ export async function POST(request: NextRequest) {
   const file = await fs.readFile(filePath, "utf-8");
   const favorites = JSON.parse(file);
 
-  const alreadyExists = favorites.find((fav: any) => fav.cca3 === body.cca3);
+  const alreadyExists = favorites.find(
+    (fav: FavoriteCountry) => fav.cca3 === body.cca3
+  );
   if (alreadyExists) {
     return Response.json(favorites); // não duplica
   }
@@ -31,7 +34,7 @@ export async function DELETE(request: NextRequest) {
 
   const file = await fs.readFile(filePath, "utf-8");
   const favorites = JSON.parse(file);
-  const updated = favorites.filter((fav: any) => fav.cca3 !== cca3);
+  const updated = favorites.filter((fav: FavoriteCountry) => fav.cca3 !== cca3);
 
   await fs.writeFile(filePath, JSON.stringify(updated, null, 2), "utf-8");
   return Response.json(updated);

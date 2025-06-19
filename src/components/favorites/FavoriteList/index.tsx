@@ -3,7 +3,6 @@
 import { FavoriteCountry } from "@/domain/country/types";
 import { FavoriteCard } from "../FavoriteCard";
 import styles from "./styles.module.scss";
-import { Heart } from "lucide-react";
 
 type Props = {
   favorites: FavoriteCountry[];

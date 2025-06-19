@@ -1,7 +1,8 @@
-app:
-  build:
-    context: .
-    dockerfile: Dockerfile
-  container_name: country-explorer-frontend-container
-  ports:
-    - "3000:3000"
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: country-explorer-frontend
+    ports:
+      - "3000:3000"

@@ -34,6 +34,7 @@ export function CountryCard({
   return (
     <div className={styles.card} onClick={onClick}>
       <div className={styles.flagWrapper}>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={country.flags.svg}
           alt={country.flags.alt || `Flag of ${country.name.common}`}

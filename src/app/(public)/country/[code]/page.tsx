@@ -22,6 +22,7 @@ export default function CountryPage() {
 
   useEffect(() => {
     fetch();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [code]);
 
   if (loading)

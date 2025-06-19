@@ -14,6 +14,7 @@ export function FavoriteCard({ country, onRemove }: Props) {
 
   return (
     <div className={styles.card}>
+      {/* eslint-disable-next-line @next/next/no-img-element */}
       <img src={country.flag} alt={country.name} className={styles.flag} />
 
       <div className={styles.info}>
