@@ -20,7 +20,7 @@ export default function Countries() {
   const { showToast } = useToast();
 
   const [search, setSearch] = useState("");
-  const debouncedSearch = useDebounce(search, 300);
+  const debouncedSearch = useDebounce(search, 1000);
 
   const handleToggleFavorite = (country: FavoriteCountry) => {
     const isAlreadyFavorite = favorites.find(

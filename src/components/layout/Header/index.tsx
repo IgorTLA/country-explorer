@@ -6,16 +6,19 @@ import { Globe, Heart } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import styles from "./styles.module.scss";
 import { useFavorites } from "@/hooks/useFavorites";
+import { useCountryList } from "@/hooks/useCountryList";
 
 export default function Header() {
   const [showingFavorites, setShowingFavorites] = useState(false);
   const router = useRouter();
   const pathname = usePathname();
   const { favorites } = useFavorites();
+  const { fetchCountries } = useCountryList();
 
   function handleRedirectToCountries() {
     setShowingFavorites(false);
     router.push("/countries");
+    fetchCountries();
   }
 
   const handleFavoritesClick = () => {
