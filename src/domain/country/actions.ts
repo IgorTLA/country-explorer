@@ -31,8 +31,15 @@ export async function getCountries(name?: string) {
         } as ApiResponseType<any>;
       }
 
-      const apiResponse = error.response.data as any;
-      const errorData = apiResponse.message as ApiResponseType<any>;
+      const errorData = error.response.data as ApiResponseType<any>;
+
+      if (errorData.status === 404 || errorData.status === 400) {
+        return {
+          message: "No countries found, try again later",
+          status: 404,
+          data: null,
+        } as ApiResponseType<any>;
+      }
 
       return {
         message: errorData.message,
@@ -67,8 +74,8 @@ export async function getCountryByCode(
           data: null,
         } as ApiResponseType<any>;
       }
-      const apiResponse = error.response.data as any;
-      const errorData = apiResponse.message as ApiResponseType<any>;
+
+      const errorData = error.response.data as ApiResponseType<any>;
 
       return {
         message: errorData.message,

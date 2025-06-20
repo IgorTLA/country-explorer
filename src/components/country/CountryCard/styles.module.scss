@@ -1,6 +1,6 @@
 .card {
-  background-color: #fff;
-  border: 1px solid #e5e5e5;
+  background-color: var(--background);
+  border: 1px solid var(--border-color-card);
   border-radius: 12px;
   overflow: hidden;
   cursor: pointer;
@@ -35,7 +35,7 @@
   transition: transform 0.2s ease;
 
   svg {
-    color: #777;
+    color: var(--text-secondary);
   }
 
   &:hover {
@@ -44,10 +44,10 @@
 }
 
 .active {
-  background-color: #e53935;
+  background-color: var(--danger);
 
   svg {
-    color: #fff;
+    color: var(--text-white);
     fill: currentColor;
   }
 }

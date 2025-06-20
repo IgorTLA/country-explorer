@@ -4,4 +4,23 @@
   padding: 32px;
   gap: 24px;
   overflow-y: auto;
+
+  .loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .error {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .empty {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }

@@ -16,7 +16,6 @@ export function CountryList({
   onCardClick,
   onToggleFavorite,
 }: CountryListProps) {
-  console.log(favorites);
   return (
     <div className={styles.grid}>
       {countries.map((country) => (

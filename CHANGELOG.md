@@ -5,7 +5,7 @@ O formato é baseado em [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 
 ## [Releases]
 
-## [0.1.0] - 15-06-2025
+## [0.1.0]
 
 ### Added
 
@@ -38,7 +38,7 @@ O formato é baseado em [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 - Layout responsivo com SASS Modules
 - Animações suaves, sombras e foco em acessibilidade
 
-## [0.2.0] - 18-06-2025
+## [0.2.0]
 
 ### Added
 
@@ -153,3 +153,47 @@ O formato é baseado em [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
   - Estados de erro em componentes
   - Mensagens amigáveis ao usuário
   - Fallbacks para dados ausentes
+
+## [0.3.0]
+
+### Added
+
+#### Sistema de Notificações Toast
+- **Toast Component**: Sistema completo de notificações
+  - Componente `Toast` com 4 status: success, error, info, warning
+  - Ícones específicos para cada tipo de notificação
+  - Animações suaves de entrada e saída
+  - Suporte a título e descrição
+  - Duração configurável (padrão: 5 segundos)
+- **Toast Provider**: Gerenciamento global de notificações
+  - Context API para controle centralizado
+  - Múltiplas notificações simultâneas
+  - Pausa automática no hover
+  - Remoção manual com botão X
+  - Posicionamento fixo no canto superior direito
+
+#### Melhorias na UX
+- **Feedback Visual**: Notificações para ações do usuário
+  - Confirmação ao adicionar/remover favoritos
+  - Mensagens personalizadas com nome do país
+  - Duração otimizada (2 segundos para ações rápidas)
+- **Loading States**: Componente `LoadingDots` aprimorado
+  - Animação de pontos para estados de carregamento
+  - Integração em listas e páginas de detalhes
+
+#### Componentes UI Aprimorados
+- **Layout Integration**: Integração do Toast Provider
+  - Provider adicionado ao layout raiz
+  - Disponibilidade global das notificações
+  - Não interfere no layout existente
+
+### Changed
+
+- **Layout Structure**: Integração do sistema de notificações
+  - ToastProvider adicionado ao RootLayout
+  - Posicionamento fixo das notificações
+  - Não afeta a estrutura de navegação existente
+- **User Feedback**: Melhoria na experiência do usuário
+  - Feedback imediato para todas as ações
+  - Mensagens claras e informativas
+  - Duração otimizada para diferentes tipos de ação

@@ -33,5 +33,9 @@ export default function CountryPage() {
     );
   if (!country) return <p className={styles.notFound}>Country not found.</p>;
 
-  return <CountryDetail country={country} />;
+  return (
+    <div className={styles.container}>
+      <CountryDetail country={country} />
+    </div>
+  );
 }

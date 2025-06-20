@@ -41,12 +41,14 @@ export function CountryCard({
         />
         <Button
           variant={ButtonVariants.ICON}
-          icon={<Heart className={isFavorite ? styles.filled : ""} size={16} />}
+          icon={<Heart size={16} />}
           isIconOnly
           isSelected={isFavorite}
           onClick={handleFavoriteClick}
           ariaLabel="Toggle favorite"
-          className={styles.favoriteButton}
+          className={`${styles.favoriteButton} ${
+            isFavorite ? styles.active : ""
+          }`}
         />
       </div>
 

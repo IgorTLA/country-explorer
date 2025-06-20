@@ -11,11 +11,13 @@ import { useDebounce } from "@/hooks/useDebounce";
 import { useEffect, useState } from "react";
 import { useFavorites } from "@/hooks/useFavorites";
 import { FavoriteCountry } from "@/domain/country/types";
+import { useToast } from "@/hooks/useToast";
 
 export default function Countries() {
   const router = useRouter();
   const { countryListState, fetchCountries } = useCountryList();
   const { favorites, addFavorite, removeFavorite } = useFavorites();
+  const { showToast } = useToast();
 
   const [search, setSearch] = useState("");
   const debouncedSearch = useDebounce(search, 300);
@@ -27,8 +29,18 @@ export default function Countries() {
 
     if (isAlreadyFavorite) {
       removeFavorite(country.cca3);
+      showToast({
+        status: "success",
+        title: `Country ${country.name} removed from favorites`,
+        duration: 2000,
+      });
     } else {
       addFavorite(country);
+      showToast({
+        status: "success",
+        title: `Country ${country.name} added to favorites`,
+        duration: 2000,
+      });
     }
   };
 
@@ -47,13 +59,13 @@ export default function Countries() {
       />
       <div className={styles.countryList}>
         {countryListState.loading ? (
-          <div className={styles.message}>
+          <div className={styles.loading}>
             <LoadingDots />
           </div>
         ) : countryListState.error ? (
-          <div className={styles.message}>{countryListState.error}</div>
+          <div className={styles.error}>{countryListState.error}</div>
         ) : countryListState.data.length === 0 ? (
-          <div className={styles.message}>
+          <div className={styles.empty}>
             <div>No countries found</div>
             <div>Try searching for another country!</div>
           </div>

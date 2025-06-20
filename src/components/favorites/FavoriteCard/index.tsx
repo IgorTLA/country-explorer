@@ -4,12 +4,12 @@ import { FavoriteCountry } from "@/domain/country/types";
 import styles from "./styles.module.scss";
 import { Trash2 } from "lucide-react";
 
-type Props = {
+type FavoriteCardProps = {
   country: FavoriteCountry;
   onRemove: (code: string) => void;
 };
 
-export function FavoriteCard({ country, onRemove }: Props) {
+export function FavoriteCard({ country, onRemove }: FavoriteCardProps) {
   const formattedDate = new Date(country.addedAt).toLocaleDateString("en-GB");
 
   return (
@@ -23,7 +23,7 @@ export function FavoriteCard({ country, onRemove }: Props) {
       </div>
 
       <button className={styles.remove} onClick={() => onRemove(country.cca3)}>
-        <Trash2 size={18} />
+        <Trash2 size={20} />
       </button>
     </div>
   );
